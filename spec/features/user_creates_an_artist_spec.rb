@@ -24,8 +24,7 @@ RSpec.feature "User submits a new artist" do
       fill_in 'artist_image_path', with: image_path
       click_on 'Create Artist'
 
-      expect(page).to have_content('Name cannot be blank')
-      expect(page_path).to be('/artists/new')
+      expect(page).to have_content("Name can't be blank")
     end
   end
 end
