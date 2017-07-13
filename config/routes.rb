@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :artists, except: [:destroy, :edit, :update]
+  resources :artists, except: [:destroy]
 end
