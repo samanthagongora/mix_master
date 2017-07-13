@@ -5,7 +5,7 @@ RSpec.feature "User visits artist show page" do
     artist1 = create(:artist)
 
     visit '/artists'
-    click_on '4Band Name'
+    click_on artist1.name
     click_on 'Edit'
     fill_in 'artist_name', with: 'new band'
     click_on 'Update Artist'
@@ -20,14 +20,14 @@ RSpec.feature "User visits artist show page" do
 
     visit '/artists'
 
-    expect(page).to have_link('5Band Name')
-    expect(page).to have_link('6Band Name')
+    expect(page).to have_link(artist1.name)
+    expect(page).to have_link(artist2.name)
 
-    click_on '5Band Name'
+    click_on artist1.name
     click_on 'Delete'
 
-    expect(page).to have_no_link('5Band Name')
-    expect(page).to have_link('6Band Name')
+    expect(page).to have_no_link(artist1.name)
+    expect(page).to have_link(artist2.name)
   end
 end
 
