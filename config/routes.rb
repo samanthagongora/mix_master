@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :new, :create]
+  resources :artists, except: [:destroy, :edit, :update]
 end
