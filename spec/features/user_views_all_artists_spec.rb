@@ -11,8 +11,8 @@ RSpec.feature "User visits artist index" do
     expect(page).to have_content(artist1.name)
     expect(page).to have_content(artist2.name)
     expect(page).to have_content(artist3.name)
-    expect(page).to have_link('1Band Name', href: artist_path(artist1))
-    expect(page).to have_link('2Band Name', href: artist_path(artist2))
-    expect(page).to have_link('3Band Name', href: artist_path(artist3))
+    expect(page).to have_link(artist1.name, href: artist_path(artist1))
+    expect(page).to have_link(artist2.name, href: artist_path(artist2))
+    expect(page).to have_link(artist3.name, href: artist_path(artist3))
   end
 end
