@@ -13,13 +13,27 @@ RSpec.feature "User visits artist show page" do
     expect(page).to have_content('new band')
     expect(page).to have_css("img[src=\"#{artist1.image_path}\"]")
   end
+
+  scenario "can delete an artist" do
+    artist1 = create(:artist)
+    artist2 = create(:artist)
+
+    visit '/artists'
+
+    expect(page).to have_link('5Band Name')
+    expect(page).to have_link('6Band Name')
+
+    click_on '5Band Name'
+    click_on 'Delete'
+
+    expect(page).to have_no_link('5Band Name')
+    expect(page).to have_link('6Band Name')
+  end
 end
 
-
-
-# And I click on "Edit"
-# And I fill in a new name
-# And I click on "Update Artist"
-# Then I should see the artist's updated name
-# Then I should see the existing image
-#
+# As a user
+# Given that an artist exists in the database
+# When I visit that artist's show page
+# And I click on "Delete"
+# Then I should be back on the artist index page
+# Then I should not see the artist's name
