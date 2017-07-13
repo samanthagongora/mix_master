@@ -3,8 +3,7 @@ FactoryGirl.define do
     sequence :title do |i|
       "#{i}Song Name"
     end
-    sequence :artist do |i|
-      "#{i}Band Name"
-    end
+
+    artist
   end
 end
